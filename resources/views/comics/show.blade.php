@@ -13,6 +13,14 @@
                 <img src="{{$comic->thumb}}" alt="{{$comic->title}}">
                 <div class="text">
                     <p>{{$comic->description}}</p>
+                    <br>
+                    <p>Series: {{$comic->series}}</p>
+                    <br>
+                    <p>Release: {{$comic->sale_date}}</p>
+                    <br>
+                    <p>Type: {{$comic->type}}</p>
+                    <br>
+                    <h3>Price: {{$comic->price}}$</h3>
                 </div>
             </div>
             
@@ -20,7 +28,7 @@
         </div>
         <div class="container center">
             <button class="blue btn">
-                <h3>load more</h3>
+                <a href="{{route('comics.index')}}"><h3>go back</h3></a>
             </button>
         </div>
         

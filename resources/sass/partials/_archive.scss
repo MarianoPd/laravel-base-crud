@@ -8,6 +8,7 @@
         text-transform: uppercase;
         color: white;
         background-color: $primary-color-light;
+        
       }
       .label{
         position: relative;
@@ -20,6 +21,12 @@
           margin: 20px;
           padding: 15px 60px;
           border: 0;
+          a{
+            width: 100%;
+            height: 100%;
+            @include center();
+            color: white;
+          }
         }
       }
       .sub-container{
