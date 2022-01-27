@@ -19,11 +19,16 @@ header{
                 text-transform: uppercase;
                 font-weight: 600;
                 height: 100%;
-                @include center(align);
+                margin-bottom: 5px;
             
                 &:hover,
                 &.active {
                     border-bottom: 5px solid $primary-color-light;
+                    margin-bottom: 0;
+                }
+                a{
+                    height: calc(100% - 5px);
+                    @include center(align);
                 }
             }
 

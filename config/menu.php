@@ -7,8 +7,8 @@ return [
       'current'=> false,
     ],
     [
-      'url'=>'comics',
-      'text'=> 'comics',
+      'url'=>'home',
+      'text'=> 'home',
       'current'=> true,
     ],
     [

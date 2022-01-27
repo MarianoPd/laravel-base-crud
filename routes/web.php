@@ -13,17 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    
-    $data = config('comics');
+Route::get('/', 'PageController@index')->name('home');
 
-    return view('comics', ['comics' => $data]);
-})->name('comics');
-
-Route::get('/characters', function () {
+/*Route::get('/characters', function () {
     return view('characters');
 })->name('characters');
 
 Route::get('/movies', function () {
     return view('movies');
-})->name('movies');
+})->name('movies');*/
+
+Route::resource('comics','ComicController');
