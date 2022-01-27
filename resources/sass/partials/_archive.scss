@@ -25,6 +25,21 @@
       .sub-container{
         @include wrap();
         width:100%;
+        
+        &.show{
+          color: white;
+          display: flex;
+          flex-wrap: nowrap;
+          
+          img{
+            display: inline-block;
+          }
+          .text{
+            display: inline-block;
+            padding:0 50px;
+          }
+          
+        }
       }
     }
 

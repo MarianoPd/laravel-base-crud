@@ -8,8 +8,15 @@
         overflow: hidden;
     }
     p{
-        color: white;
+        
         text-transform: uppercase;
         margin: 20px 0;
+        a{
+            color: white;
+            &:hover{
+                color: $primary-color-dark;
+            }
+
+        }
     }
 }

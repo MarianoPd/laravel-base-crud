@@ -7,19 +7,13 @@
     <section class="archive">
         <div class="container">
             <div class="blue label">
-                <h1>current series</h1>
+                <h1>{{$comic->title}}</h1>
             </div>
-            <div class="sub-container">
-                @foreach ($comics as $comic)
-                <div class="card">
-                    <div class="image">
-                        <img src="{{$comic['thumb']}}" alt="{{$comic['title']}}">
-                    </div>
-                    <p>
-                        <a href="{{route('comics.show',$comic)}}">{{$comic['title']}}</a>
-                    </p>
+            <div class="sub-container show">
+                <img src="{{$comic->thumb}}" alt="{{$comic->title}}">
+                <div class="text">
+                    <p>{{$comic->description}}</p>
                 </div>
-                @endforeach
             </div>
             
             
