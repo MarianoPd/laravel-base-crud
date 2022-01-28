@@ -145,6 +145,19 @@ footer > div section.bottom .container .socials h3 {
   margin: 0 auto;
 }
 
+.pb-1 {
+  padding-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  color: white;
+}
+
+.form-text {
+  width: 50%;
+}
+
 .archive {
   background-color: #1c1c1c;
 }
@@ -153,6 +166,11 @@ footer > div section.bottom .container .socials h3 {
   text-transform: uppercase;
   color: white;
   background-color: #0282f9;
+}
+.archive .container .blue .btn {
+  margin: 20px;
+  padding: 15px 60px;
+  border: 0;
 }
 .archive .container .label {
   position: relative;
@@ -164,18 +182,10 @@ footer > div section.bottom .container .socials h3 {
   align-items: center;
   justify-content: center;
 }
-.archive .container.center button.btn {
+.archive .container.center .btn {
   margin: 20px;
   padding: 15px 60px;
   border: 0;
-}
-.archive .container.center button.btn a {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
 }
 .archive .container .sub-container {
   display: flex;

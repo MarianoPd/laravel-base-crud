@@ -8,7 +8,11 @@
         text-transform: uppercase;
         color: white;
         background-color: $primary-color-light;
-        
+        .btn{
+          margin: 20px;
+          padding: 15px 60px;
+          border: 0;          
+        }
       }
       .label{
         position: relative;
@@ -17,16 +21,11 @@
       }
       &.center{
         @include center();
-        button.btn{
+        .btn{
           margin: 20px;
           padding: 15px 60px;
           border: 0;
-          a{
-            width: 100%;
-            height: 100%;
-            @include center();
-            color: white;
-          }
+          
         }
       }
       .sub-container{

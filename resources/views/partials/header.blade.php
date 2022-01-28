@@ -4,17 +4,20 @@
         <ul>
             <li class="{{ (Route::currentRouteName() === 'home') ? 'active' : '' }}">
                 <a href="{{route('home')}}">
-                    {{'home'}}
+                    home
                 </a>
             </li>
             <li class="{{ (Route::currentRouteName() === 'comics.index') ? 'active' : '' }}">
                 <a href="{{route('comics.index')}}">
-                    {{'comics'}}
+                    comics
                 </a>
             </li>
-            <li>
-                <a href="/">movies</a>
+            <li class="{{ (Route::currentRouteName() === 'comics.create') ? 'active' : '' }}">
+                <a href="{{route('comics.create')}}">
+                    create
+                </a>
             </li>
+            
             <li>
                 <a href="/">tv</a>
             </li>

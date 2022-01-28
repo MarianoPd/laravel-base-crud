@@ -27,9 +27,9 @@
             
         </div>
         <div class="container center">
-            <button class="blue btn">
-                <a href="{{route('comics.index')}}"><h3>go back</h3></a>
-            </button>
+            
+                <a href="{{route('comics.index')}}" class="blue btn"><h3>go back</h3></a>
+            
         </div>
         
       </section>
