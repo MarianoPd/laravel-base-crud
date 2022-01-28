@@ -161,17 +161,6 @@ footer > div section.bottom .container .socials h3 {
 .archive {
   background-color: #1c1c1c;
 }
-.archive .container .blue {
-  display: inline-block;
-  text-transform: uppercase;
-  color: white;
-  background-color: #0282f9;
-}
-.archive .container .blue .btn {
-  margin: 20px;
-  padding: 15px 60px;
-  border: 0;
-}
 .archive .container .label {
   position: relative;
   transform: translate(0, -50%);
@@ -211,6 +200,18 @@ footer > div section.bottom .container .socials h3 {
 }
 .jumbo img {
   width: 100%;
+}
+
+.blue {
+  display: inline-block;
+  text-transform: uppercase;
+  color: white;
+  background-color: #0282f9;
+}
+.blue.btn {
+  margin: 20px;
+  padding: 15px 60px;
+  border: 0;
 }
 
 .card {
