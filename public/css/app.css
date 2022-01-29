@@ -188,6 +188,8 @@ footer > div section.bottom .container .socials h3 {
 }
 .archive .container .sub-container.show img {
   display: inline-block;
+  max-width: 15vw;
+  min-width: 200px;
 }
 .archive .container .sub-container.show .text {
   display: inline-block;

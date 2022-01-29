@@ -29,6 +29,8 @@
           
           img{
             display: inline-block;
+            max-width: 15vw;
+            min-width: 200px;
           }
           .text{
             display: inline-block;

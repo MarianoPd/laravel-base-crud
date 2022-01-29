@@ -6,6 +6,7 @@ use App\Comic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+
 class ComicController extends Controller
 {
     /**
@@ -40,8 +41,16 @@ class ComicController extends Controller
     {
         $data = $request->all();
         $new_comic = new Comic();
-        $data['slug'] = Str::slug($data['title'],'-');
+        $data['slug']= $this->makeSlug($data['title']);
+        
+        if(!$data['thumb']){
+            $data['thumb'] = 'https://i.pinimg.com/originals/bd/29/cc/bd29cccfe6f31ff008079c20872944d4.jpg';
+        }
+        if(!$data['type']){
+            $data['type'] = 'comic';
+        }
         $new_comic->fill($data);
+        
         $new_comic->save();
         return redirect()->route('comics.show',$new_comic);
     }
@@ -86,7 +95,14 @@ class ComicController extends Controller
     public function update(Request $request, Comic $comic)
     {
         $data =  $request->all();
-        $data['slug']= Str::slug($data['title'],'-');
+        $data['slug']= $this->makeSlug($data['title']);
+        if(!$data['thumb'] || $data['thumb'] === ''){
+            $data['thumb'] = 'https://i.pinimg.com/originals/bd/29/cc/bd29cccfe6f31ff008079c20872944d4.jpg';
+        }
+        if(!$data['type']){
+            $data['type'] = 'comic';
+        }
+        $comic->update($data);
         return redirect()->route('comics.show', $comic);
     }
 
@@ -100,5 +116,22 @@ class ComicController extends Controller
     {
         $comic->delete();
         return redirect()->route('comics.index');
+    }
+
+    private function makeSlug($stringToSlug){
+        $slug = Str::slug($stringToSlug, '-');
+        if(Comic::where('slug',$slug)->exists()){
+            $slug = $this->incrementSlug($slug);
+        }
+        return $slug;
+    }
+
+    private function incrementSlug($slug){
+        $original = $slug;
+        $count = 2;
+        while(Comic::where('slug',$slug)->exists()){
+            $slug = "{$original}-".$count++;
+        }
+        return $slug;
     }
 }
