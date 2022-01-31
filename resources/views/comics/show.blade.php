@@ -25,13 +25,14 @@
             </div>
             
             
-        </div>
+        </div>                
         <div class="container center">
             
                 <a href="{{route('comics.index')}}" class="blue btn"><h3>go back</h3></a>
                 <a href="{{route('comics.edit', $comic)}}" class="blue btn"><h3>edit</h3></a>
                 
-                <form action="{{ route('comics.destroy', $comic) }}" method="POST">
+                <form onsubmit="return confirm('sei sicuro di eliminare: {{$comic->title}}')"
+                    action="{{ route('comics.destroy', $comic) }}" method="POST">
                     @csrf
                     @method('DELETE')
 
