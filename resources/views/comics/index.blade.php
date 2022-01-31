@@ -1,11 +1,21 @@
 @extends('layouts.app')
 @section('content')
+
+
+
+    @if(session('deleted'))
+        <div class="message">
+            <h3>{{session('deleted')}}</h3>
+        </div>
+    @endif
+
     <section class="jumbo">
         <img src="{{asset('img/jumbotron.jpg')}}" alt="jumbotron">
     </section>
     
     <section class="archive">
         <div class="container">
+            
             <div class="blue label">
                 <h1>current series</h1>
             </div>
@@ -25,9 +35,12 @@
             
         </div>
         <div class="container center">
-            <button class="blue btn">
+            {{-- <button class="blue btn">
                 <h3>load more</h3>
-            </button>
+            </button> --}}
+            <div class="blue btn">
+            {{$comics->links()}}
+            </div>
         </div>
         
       </section>

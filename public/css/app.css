@@ -145,6 +145,11 @@ footer > div section.bottom .container .socials h3 {
   margin: 0 auto;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+}
+
 .pb-1 {
   padding-bottom: 1rem;
 }
@@ -155,7 +160,40 @@ footer > div section.bottom .container .socials h3 {
 }
 
 .form-text {
-  width: 50%;
+  width: 100%;
+}
+
+.form-err {
+  color: #f76666;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.form-invalid {
+  border: 1px solid #f76666;
+  border-radius: 3px;
+}
+
+.pagination .page-item {
+  display: inline-block;
+  padding: 7px;
+}
+.pagination .page-item .page-link {
+  font-size: 20px;
+  font-weight: 600;
+}
+.pagination .page-item .page-link:hover {
+  color: white;
+}
+
+.message {
+  width: 100%;
+  color: white;
+  padding: 10px 20px;
+  background-color: #0c7cec;
+}
+.message.error {
+  background-color: #f76666;
 }
 
 .archive {

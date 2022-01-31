@@ -16,7 +16,7 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $comics = Comic::all();
+        $comics = Comic::orderBy('id','desc')->paginate(6);
         
         return view('comics.index', compact('comics'));
     }
@@ -39,6 +39,8 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate($this->validationData(),$this->validationErr());
+
         $data = $request->all();
         $new_comic = new Comic();
         $data['slug']= $this->makeSlug($data['title']);
@@ -94,11 +96,12 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+        $request->validate($this->validationData(),$this->validationErr());
         $data =  $request->all();
         $data['slug']= $this->makeSlug($data['title']);
         if(!$data['thumb'] || $data['thumb'] === ''){
             $data['thumb'] = 'https://i.pinimg.com/originals/bd/29/cc/bd29cccfe6f31ff008079c20872944d4.jpg';
-        }
+        } 
         if(!$data['type']){
             $data['type'] = 'comic';
         }
@@ -115,7 +118,7 @@ class ComicController extends Controller
     public function destroy(Comic $comic)
     {
         $comic->delete();
-        return redirect()->route('comics.index');
+        return redirect()->route('comics.index')->with('deleted', "Il comic $comic->title è stato eliminato");
     }
 
     private function makeSlug($stringToSlug){
@@ -133,5 +136,44 @@ class ComicController extends Controller
             $slug = "{$original}-".$count++;
         }
         return $slug;
+    }
+
+    private function validationData(){
+        return [
+            'title'=> "required|max:50|min:2",
+            'description' => "max:1000",
+            'thumb'=> "max:200",                
+            'price' => "required|numeric|min:1|max:100",
+            'series'=> "required|min:2|max:50",
+            'sale_date'=> "required|date|after:1934-01-01|before:today",
+            'type' => "max:50",
+        ];
+    }
+    private function validationErr(){
+        return [
+            'title.required'=> 'You have to insert a title',
+            'title.max'=> 'The title is too long',
+            'title.min'=> 'The title is too short',
+
+            'description.max'=> 'The description is too long',
+
+            'thumb.max'=> 'The link is too long',
+
+            'price.required'=> 'Whe are a company. Put in a damn price!',
+            'price.numeric'=> 'Whe are a company. Put in a damn price!',
+            'price.min'=> 'Whe don t do charity. The price is too low ',
+            'price.max'=> 'Calm down ! The price is too hight, but the CEO is proud ',
+
+            'series.required'=> 'You have to insert the serie of the comic',
+            'series.min'=> 'Serie field too short',
+            'series.max'=> 'Serie field too long',
+
+            'sale_date.required' => "You have to insert a release date",
+            'sale_date.date' => "Not a date",
+            'sale_date.after' => "The date is too old",
+            'sale_date.before' => "The date is too futuristic",
+
+            'type.max'=> 'Type field too long'
+        ];
     }
 }
